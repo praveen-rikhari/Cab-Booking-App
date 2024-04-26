@@ -24,9 +24,9 @@ function Header() {
                         width={80} height={80}
                         alt='Logo' className='cursor-pointer'
                     />
-                    <span className="italic text-2xl font-bold ml-3">
+                    <span className="text-2xl font-bold ml-3 italic">
                         Speedy.
-                        <span className="text-green-500 text-2xl font-bold py-1">Go</span>
+                        <span className="text-green-500 text-2xl font-bold py-1" style={{fontStyle : 'normal'}}>Go</span>
                     </span>
                 </div>
 
