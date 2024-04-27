@@ -32,6 +32,7 @@ function MapboxMap() {
             >
               <img src="./pin.png" className='w-10 h-10' />
             </Marker>
+            
           </Map> : null
         }
 
