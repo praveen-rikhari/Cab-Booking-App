@@ -2,6 +2,7 @@
 import React from 'react';
 import AutoCompleteAddress from './AutoCompleteAddress';
 import Cars from './Cars';
+import Cards from './Cards';
 
 function Booking() {
     // const screenHeight = window.innerHeight * 0.72; style={{ height: screenHeight }}
@@ -14,6 +15,7 @@ function Booking() {
 
                 <AutoCompleteAddress />
                 <Cars/>
+                <Cards/>
                 <button className=' p-4 bg-black w-full mt-5 text-white font-bold rounded-lg'>
                     Search Rides
                 </button>
