@@ -1,6 +1,5 @@
-import GoogleMapSection from "@/components/Booking/GoogleMapSection";
+import MapboxMap from "@/components/Map/MapboxMap";
 import Booking from "@/components/Booking/Booking";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -10,7 +9,7 @@ export default function Home() {
 
       </div>
       <div className='col-span-2'>
-        <GoogleMapSection />
+        <MapboxMap />
       </div>
     </div>
   );
