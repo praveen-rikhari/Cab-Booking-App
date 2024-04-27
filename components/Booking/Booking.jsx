@@ -3,10 +3,10 @@ import React from 'react';
 import AutoCompleteAddress from './AutoCompleteAddress';
 
 function Booking() {
-    const screenHeight = window.innerHeight * 0.72;
+    // const screenHeight = window.innerHeight * 0.72; style={{ height: screenHeight }}
     return (
         <div>
-            <div className="p-2 md:p-6 border-[2px] rounded-xl" style={{ height: screenHeight }}>
+            <div className="p-2 md:p-6 border-[2px] rounded-xl" >
                 <p className="text-[22px] font-bold">
                     Book a Ride
                 </p>
