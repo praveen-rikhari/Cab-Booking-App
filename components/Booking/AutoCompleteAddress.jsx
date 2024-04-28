@@ -33,8 +33,9 @@ function AutoCompleteAddress() {
 
     const getAddressList = async () => {
         setAddressList([]);
+        const query = sourceChange ? source : destination;
 
-        const res = await fetch('/api/search-address?q=' + source, {
+        const res = await fetch('/api/search-address?q=' + query, {
             headers: {
                 "Content-Type": "application/json",
             }

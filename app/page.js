@@ -28,7 +28,7 @@ export default function Home() {
     <div className='p-6 grid grid-cols-1 md:grid-cols-3 gap-5'>
       <UserLocationContext.Provider value={{ userLocation, setUserLocation }}>
         <SourceCordContext.Provider value={{ soruceCordinates, setSourceCordinates }}>
-          <DestinationCordContext.Provider value={{ soruceCordinates, setSourceCordinates }}>
+          <DestinationCordContext.Provider value={{ destinationCordinates, setDestinationCordinates }}>
             <div>
               <Booking />
 
