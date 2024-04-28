@@ -4,9 +4,13 @@ import MapboxMap from "@/components/Map/MapboxMap";
 import Booking from "@/components/Booking/Booking";
 import { useEffect, useState } from "react";
 import { UserLocationContext } from "@/context/UserLocationContext";
+import { SourceCordContext } from "@/context/SourceCordContext";
+import { DestinationCordContext } from "@/context/DestinationCordContext";
 
 export default function Home() {
   const [userLocation, setUserLocation] = useState();
+  const [soruceCordinates, setSourceCordinates] = useState([]);
+  const [destinationCordinates, setDestinationCordinates] = useState([]);
 
   useEffect(() => {
     getUserLocation();
@@ -23,13 +27,17 @@ export default function Home() {
   return (
     <div className='p-6 grid grid-cols-1 md:grid-cols-3 gap-5'>
       <UserLocationContext.Provider value={{ userLocation, setUserLocation }}>
-        <div>
-          <Booking />
+        <SourceCordContext.Provider value={{ soruceCordinates, setSourceCordinates }}>
+          <DestinationCordContext.Provider value={{ soruceCordinates, setSourceCordinates }}>
+            <div>
+              <Booking />
 
-        </div>
-        <div className='col-span-2'>
-          <MapboxMap />
-        </div>
+            </div>
+            <div className='col-span-2'>
+              <MapboxMap />
+            </div>
+            </DestinationCordContext.Provider>
+          </SourceCordContext.Provider>
       </UserLocationContext.Provider>
     </div>
   );

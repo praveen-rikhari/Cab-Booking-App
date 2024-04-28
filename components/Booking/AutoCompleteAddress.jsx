@@ -1,5 +1,8 @@
 import Image from 'next/image';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+
+import { DestinationCordContext } from '@/context/DestinationCordContext'
+import { SourceCordContext } from '@/context/SourceCordContext'
 
 import { v4 } from 'uuid';
 const MAPBOX_RETRIEVE_URL = 'https://api.mapbox.com/search/searchbox/v1/retrieve/'
@@ -13,8 +16,8 @@ function AutoCompleteAddress() {
     const [sourceChange, setSourceChange] = useState(false)
     const [destinationChange, setDestinationChange] = useState(false);
 
-    const [soruceCordinates, setSourceCordinates] = useState([]);
-    const [destinationCordinates, setDestinationCordinates] = useState([]);
+    const { soruceCordinates, setSourceCordinates } = useContext(SourceCordContext);
+    const { destinationCordinates, setDestinationCordinates } = useContext(DestinationCordContext);
 
     const sessionToken = v4()
 
