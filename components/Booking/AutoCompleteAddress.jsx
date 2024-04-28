@@ -14,6 +14,7 @@ function AutoCompleteAddress() {
     const [destinationChange, setDestinationChange] = useState(false);
 
     const [soruceCordinates, setSourceCordinates] = useState([]);
+    const [destinationCordinates, setDestinationCordinates] = useState([]);
 
     const sessionToken = v4()
 
@@ -45,6 +46,29 @@ function AutoCompleteAddress() {
         setSource(item.full_address);
         setAddressList([]);
         setSourceChange(false);
+
+        const res = await fetch(MAPBOX_RETRIEVE_URL + item.mapbox_id + "?session_token=" + sessionToken
+            + "&access_token=" + process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN,
+            {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+
+        const result = await res.json();
+
+        setSourceCordinates(
+            {
+                lng: result.features[0].geometry.coordinates[0],
+                lat: result.features[0].geometry.coordinates[1],
+            }
+        )
+    }
+
+    const onDestinationAddressClick = async (item) => {
+        setDestination(item.full_address);
+        setAddressList([]);
+        setDestinationChange(false)
 
         const res = await fetch(MAPBOX_RETRIEVE_URL + item.mapbox_id + "?session_token=" + sessionToken
             + "&access_token=" + process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN,
@@ -128,9 +152,7 @@ function AutoCompleteAddress() {
                                         key={index}
                                         className='p-3 hover:bg-gray-100 cursor-pointer'
                                         onClick={() => {
-                                            setDestination(item.full_address);
-                                            setAddressList([]);
-                                            setDestinationChange(false)
+                                            onDestinationAddressClick(item);
                                         }}
                                     >
                                         {item.full_address}
