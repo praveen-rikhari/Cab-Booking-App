@@ -30,7 +30,7 @@ function Markers() {
                         anchor="bottom"
 
                     >
-                        <img src="./pin.png" className='w-10 h-10' />
+                        <img src="./source.png" className='w-5 h-5' />
                     </Marker> : null
             }
 
@@ -43,7 +43,7 @@ function Markers() {
                         anchor="bottom"
 
                     >
-                        <img src="./pin.png" className='w-10 h-10' />
+                        <img src="./dest.png" className='w-5 h-5' />
                     </Marker> : null
             }
         </div>
