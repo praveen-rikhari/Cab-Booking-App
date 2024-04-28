@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 
+import { v4 } from 'uuid';
+const MAPBOX_RETRIEVE_URL = 'https://api.mapbox.com/search/searchbox/v1/retrieve/'
+
 function AutoCompleteAddress() {
 
     const [source, setSource] = useState()
@@ -9,6 +12,10 @@ function AutoCompleteAddress() {
 
     const [sourceChange, setSourceChange] = useState(false)
     const [destinationChange, setDestinationChange] = useState(false);
+
+    const [soruceCordinates, setSourceCordinates] = useState([]);
+
+    const sessionToken = v4()
 
     useEffect(() => {
         const delayDebounceFn = setTimeout(() => {
@@ -33,6 +40,30 @@ function AutoCompleteAddress() {
         setAddressList(result)
 
     }
+
+    const onSourceAddressClick = async (item) => {
+        setSource(item.full_address);
+        setAddressList([]);
+        setSourceChange(false);
+
+        const res = await fetch(MAPBOX_RETRIEVE_URL + item.mapbox_id + "?session_token=" + sessionToken
+            + "&access_token=" + process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN,
+            {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+
+        const result = await res.json();
+
+        setDestinationCordinates(
+            {
+                lng: result.features[0].geometry.coordinates[0],
+                lat: result.features[0].geometry.coordinates[1],
+            }
+        )
+    }
+
     return (
         <>
             <div className='relative'>
@@ -60,9 +91,7 @@ function AutoCompleteAddress() {
                                         key={index}
                                         className='p-3 hover:bg-gray-100 cursor-pointer'
                                         onClick={() => {
-                                            setSource(item.full_address);
-                                            setAddressList([]);
-                                            setSourceChange(false)
+                                            onSourceAddressClick(item);
                                         }}
                                     >
                                         {item.full_address}
