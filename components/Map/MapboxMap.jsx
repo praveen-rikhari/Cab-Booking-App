@@ -7,6 +7,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import Markers from './Markers';
 import { DestinationCordContext } from '@/context/DestinationCordContext'
 import { SourceCordContext } from '@/context/SourceCordContext'
+import { DirectionDataContext } from '@/context/DirectionDataContext';
+
 const MAPBOX_DRIVING_ENDPOINT =
   "https://api.mapbox.com/directions/v5/mapbox/driving/";
 
@@ -16,6 +18,7 @@ function MapboxMap() {
   const { userLocation, setUserLocation } = useContext(UserLocationContext);
   const { soruceCordinates, setSourceCordinates } = useContext(SourceCordContext);
   const { destinationCordinates, setDestinationCordinates } = useContext(DestinationCordContext);
+  const { directionData, setDirectionData } = useContext(DirectionDataContext);
 
   // Use to Fly to Source Markers Location
   useEffect(() => {
@@ -64,6 +67,7 @@ function MapboxMap() {
 
     const result = await res.json();
     console.log(result);
+    setDirectionData(result);
   };
 
   return (

@@ -6,11 +6,13 @@ import { useEffect, useState } from "react";
 import { UserLocationContext } from "@/context/UserLocationContext";
 import { SourceCordContext } from "@/context/SourceCordContext";
 import { DestinationCordContext } from "@/context/DestinationCordContext";
+import { DirectionDataContext } from "@/context/DirectionDataContext";
 
 export default function Home() {
   const [userLocation, setUserLocation] = useState();
   const [soruceCordinates, setSourceCordinates] = useState([]);
   const [destinationCordinates, setDestinationCordinates] = useState([]);
+  const [directionData, setDirectionData] = useState([]);
 
   useEffect(() => {
     getUserLocation();
@@ -29,15 +31,17 @@ export default function Home() {
       <UserLocationContext.Provider value={{ userLocation, setUserLocation }}>
         <SourceCordContext.Provider value={{ soruceCordinates, setSourceCordinates }}>
           <DestinationCordContext.Provider value={{ destinationCordinates, setDestinationCordinates }}>
-            <div>
-              <Booking />
+            <DirectionDataContext.Provider value={{ directionData, setDirectionData }}>
+              <div>
+                <Booking />
 
-            </div>
-            <div className='col-span-2'>
-              <MapboxMap />
-            </div>
-            </DestinationCordContext.Provider>
-          </SourceCordContext.Provider>
+              </div>
+              <div className='col-span-2'>
+                <MapboxMap />
+              </div>
+            </DirectionDataContext.Provider>
+          </DestinationCordContext.Provider>
+        </SourceCordContext.Provider>
       </UserLocationContext.Provider>
     </div>
   );
