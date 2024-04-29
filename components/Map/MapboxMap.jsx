@@ -7,6 +7,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import Markers from './Markers';
 import { DestinationCordContext } from '@/context/DestinationCordContext'
 import { SourceCordContext } from '@/context/SourceCordContext'
+const MAPBOX_DRIVING_ENDPOINT =
+  "https://api.mapbox.com/directions/v5/mapbox/driving/";
 
 function MapboxMap() {
   const mapRef = useRef();
@@ -34,7 +36,35 @@ function MapboxMap() {
       });
     }
 
+    if (soruceCordinates && destinationCordinates) {
+      getDirectionRoute();
+    }
+
   }, [destinationCordinates]);
+
+  const getDirectionRoute = async () => {
+    const res = await fetch(
+      MAPBOX_DRIVING_ENDPOINT +
+      soruceCordinates.lng +
+      "," +
+      soruceCordinates.lat +
+      ";" +
+      destinationCordinates.lng +
+      "," +
+      destinationCordinates.lat +
+      "?overview=full&geometries=geojson" +
+      "&access_token=" +
+      process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const result = await res.json();
+    console.log(result);
+  };
 
   return (
     <div className="p-5">
