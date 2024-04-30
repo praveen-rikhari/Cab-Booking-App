@@ -71,12 +71,13 @@ function MapboxMap() {
     console.log(result);
     setDirectionData(result);
   };
+  // const screenHeight = window.innerHeight * 1;
 
   return (
     <div className="p-5">
-      <h2 className="text-[20px] font-semibold">Map</h2>
+      <h2 className="text-[20px] font-semibold">Map 🗺️</h2>
 
-      <div className="rounded-lg overflow-hidden">
+      <div className="rounded-lg">
         {
           userLocation ? <Map
             ref={mapRef}
@@ -88,7 +89,7 @@ function MapboxMap() {
                 zoom: 14
               }
             }
-            style={{ width: "100%", height: 600, borderRadius: 10 }}
+            style={{ width: "100%", height: 725, borderRadius: 10 }}
             mapStyle="mapbox://styles/mapbox/streets-v9"
           >
             <Markers />
@@ -105,7 +106,7 @@ function MapboxMap() {
 
       </div>
 
-      <div className='absolute bottom-[220px] z-20 right-[60px] hidden md:block'>
+      <div className='absolute bottom-[90px] z-20 right-[60px] hidden md:block'>
         <DistanceTIme />
       </div>
 

@@ -8,7 +8,7 @@ function Cars() {
     const { directionData, setDirectionData } = useContext(DirectionDataContext);
 
     const getCost = (charges) => {
-        return (charges * directionData.routes[0].distance * 0.001).toFixed(2)
+        return (charges * directionData.routes[0].distance * 0.001 * 30).toFixed(0)
     }
 
     return (
@@ -34,12 +34,14 @@ function Cars() {
                                 height={90}
                                 className='w-full'
                             />
-                            <h2 className='text-[15px] text-gray-500'>{item.name}
+                            <h2 className='text-[15px] text-center text-gray-500'>{item.name}
 
                                 {
                                     directionData.routes ?
                                         <span className='float-right font-medium text-black'>
-                                            $ {getCost(item.charges)}
+                                            ₹ {
+                                                getCost(item.charges)
+                                            }
                                         </span> : null
                                 }
 
