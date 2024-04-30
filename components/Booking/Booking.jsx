@@ -14,9 +14,12 @@ function Booking() {
                 </p>
 
                 <AutoCompleteAddress />
-                <Cars/>
-                <Cards/>
-                <button className=' p-4 bg-black w-full mt-5 text-white font-bold rounded-lg'>
+                <Cars />
+                <Cards />
+                <button className=' p-4 bg-yellow-500 w-full mt-5
+                 text-white font-bold rounded-lg
+                  hover:bg-[#f5bb06]'
+                >
                     Search Rides
                 </button>
             </div>
