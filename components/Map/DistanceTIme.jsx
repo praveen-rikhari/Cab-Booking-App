@@ -15,6 +15,13 @@ function DistanceTime() {
                         (directionData.routes[0].distance * 0.001).toFixed(2)
                     } Kms
                 </span>
+
+                Duration:
+                <span className='font-bold pl-1 text-black'>
+                    {
+                        (directionData.routes[0].duration / 60).toFixed(2)
+                    } Minutes
+                </span>
             </h2>
 
         </div>
