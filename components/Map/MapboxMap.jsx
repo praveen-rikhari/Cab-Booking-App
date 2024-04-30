@@ -9,6 +9,7 @@ import { DestinationCordContext } from '@/context/DestinationCordContext'
 import { SourceCordContext } from '@/context/SourceCordContext'
 import { DirectionDataContext } from '@/context/DirectionDataContext';
 import MapBoxRoute from './MapBoxRoute';
+import DistanceTIme from './DistanceTIme';
 
 const MAPBOX_DRIVING_ENDPOINT =
   "https://api.mapbox.com/directions/v5/mapbox/driving/";
@@ -103,6 +104,11 @@ function MapboxMap() {
         }
 
       </div>
+
+      <div className='absolute bottom-[220px] z-20 right-[60px] hidden md:block'>
+        <DistanceTIme />
+      </div>
+
     </div >
   )
 }
