@@ -3,7 +3,7 @@ import CarsList from '@/data/CarsList'
 import Image from 'next/image'
 import React, { useState, useContext } from 'react'
 
-function Cars() {
+function Cars({ onCarSelectAmount }) {
     const [selectedCar, setSelectedCar] = useState();
     const { directionData, setDirectionData } = useContext(DirectionDataContext);
 
@@ -26,7 +26,12 @@ function Cars() {
                                     : null
                                 }`
                             }
-                            onClick={() => setSelectedCar(index)}
+                            onClick={
+                                () => {
+                                    setSelectedCar(index);
+                                    onCarSelectAmount(getCost(item.charges))
+                                }
+                            }
                         >
                             <Image src={item.image}
                                 alt={item.name}
