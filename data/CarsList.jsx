@@ -7,7 +7,7 @@ export default [
     },
     {
         id: 2,
-        name: '3-Wheeler',
+        name: 'Speedy-Auto',
         image: '/00.png',
         charges: 0.9
     },
