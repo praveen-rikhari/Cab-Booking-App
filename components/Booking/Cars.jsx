@@ -1,11 +1,13 @@
 import { DirectionDataContext } from '@/context/DirectionDataContext';
+import { SelectedCarAmountContext } from '@/context/SelectedCarAmountContext';
 import CarsList from '@/data/CarsList'
 import Image from 'next/image'
 import React, { useState, useContext } from 'react'
 
-function Cars({ onCarSelectAmount }) {
+function Cars() {
     const [selectedCar, setSelectedCar] = useState();
     const { directionData, setDirectionData } = useContext(DirectionDataContext);
+    const { carAmount, setCarAmount } = useContext(SelectedCarAmountContext);
 
     const getCost = (charges) => {
         return (charges * directionData.routes[0].distance * 0.001 * 30).toFixed(0)
@@ -29,7 +31,7 @@ function Cars({ onCarSelectAmount }) {
                             onClick={
                                 () => {
                                     setSelectedCar(index);
-                                    onCarSelectAmount(getCost(item.charges))
+                                    setCarAmount(getCost(item.charges))
                                 }
                             }
                         >

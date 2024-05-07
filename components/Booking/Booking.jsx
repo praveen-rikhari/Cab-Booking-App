@@ -1,13 +1,15 @@
 'use client'
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import AutoCompleteAddress from './AutoCompleteAddress';
 import Cars from './Cars';
 import Cards from './Cards';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
+import { SelectedCarAmountContext } from '@/context/SelectedCarAmountContext';
 
 function Booking() {
     // const screenHeight = window.innerHeight * 0.72; style={{ height: screenHeight }}
     const [amount, setAmount] = useState();
+    const { carAmount, setCarAmount } = useContext(SelectedCarAmountContext);
     const router = useRouter()
 
     return (
@@ -18,12 +20,16 @@ function Booking() {
                 </p>
 
                 <AutoCompleteAddress />
-                <Cars onCarSelectAmount={(amount) => setAmount(amount)} />
+                <Cars />
                 <Cards />
-                <button className=' p-4 bg-yellow-500 w-full mt-5
-                 text-white font-bold rounded-lg
-                  hover:bg-[#f5bb06]'
 
+                <button
+                    className={
+                        `w-full p-4 mt-5 font-bold rounded-md 
+                        ${!carAmount ? 'bg-gray-200 cursor-not-allowed opacity-70' : 'bg-yellow-500 hover:bg-[#f5bb06]'} 
+                        `
+                    }
+                    disabled={!carAmount}
                     onClick={() => router.push('/payment')}
                 >
                     Search Rides
