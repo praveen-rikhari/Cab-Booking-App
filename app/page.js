@@ -7,18 +7,21 @@ import { UserLocationContext } from "@/context/UserLocationContext";
 import { SourceCordContext } from "@/context/SourceCordContext";
 import { DestinationCordContext } from "@/context/DestinationCordContext";
 import { DirectionDataContext } from "@/context/DirectionDataContext";
+import { SelectedCarAmountContext } from "@/context/SelectedCarAmountContext";
 
 export default function Home() {
   const [userLocation, setUserLocation] = useState();
   const [soruceCordinates, setSourceCordinates] = useState([]);
   const [destinationCordinates, setDestinationCordinates] = useState([]);
   const [directionData, setDirectionData] = useState([]);
+  const [carAmount, setCarAmount] = useState();
 
   useEffect(() => {
     getUserLocation();
   }, [])
 
   const getUserLocation = () => {
+    carAmount
     navigator.geolocation.getCurrentPosition(function (pos) {
       setUserLocation({
         lat: pos.coords.latitude,
@@ -32,13 +35,15 @@ export default function Home() {
         <SourceCordContext.Provider value={{ soruceCordinates, setSourceCordinates }}>
           <DestinationCordContext.Provider value={{ destinationCordinates, setDestinationCordinates }}>
             <DirectionDataContext.Provider value={{ directionData, setDirectionData }}>
-              <div>
-                <Booking />
+              <SelectedCarAmountContext.Provider value={{ carAmount, setCarAmount }}>
+                <div>
+                  <Booking />
+                </div>
 
-              </div>
-              <div className='col-span-2'>
-                <MapboxMap />
-              </div>
+                <div className='col-span-2'>
+                  <MapboxMap />
+                </div>
+              </SelectedCarAmountContext.Provider>
             </DirectionDataContext.Provider>
           </DestinationCordContext.Provider>
         </SourceCordContext.Provider>
