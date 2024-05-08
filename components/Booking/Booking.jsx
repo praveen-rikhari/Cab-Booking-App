@@ -1,4 +1,5 @@
-'use client'
+"use client"
+
 import React, { useContext, useState } from 'react';
 import AutoCompleteAddress from './AutoCompleteAddress';
 import Cars from './Cars';
@@ -11,6 +12,7 @@ function Booking() {
     const [amount, setAmount] = useState();
     const { carAmount, setCarAmount } = useContext(SelectedCarAmountContext);
     const router = useRouter()
+    console.log(typeof carAmount)
 
     return (
         <div>
@@ -30,9 +32,9 @@ function Booking() {
                         `
                     }
                     disabled={!carAmount}
-                    onClick={() => router.push('/payment')}
+                    onClick={() => router.push('/payment?amount=' + carAmount)}
                 >
-                    Search Rides
+                    Book Ride
                 </button>
             </div>
         </div>

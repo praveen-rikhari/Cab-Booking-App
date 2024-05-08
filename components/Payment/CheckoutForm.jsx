@@ -7,10 +7,11 @@ function CheckoutForm({ amount }) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
         if (elements == null) {
             return;
         }
-        const { submitError } = await elements.submit();
+        const { error: submitError } = await elements.submit();
         if (submitError) {
             return;
         }
@@ -19,24 +20,30 @@ function CheckoutForm({ amount }) {
         const res = await fetch('/api/create-intent', {
             method: 'POST',
             body: JSON.stringify({
-                amount: amount
-            }), 
+                amount: Number(amount)
+            }),
         });
 
         const secretKey = await res.json();
         console.log(secretKey);
 
-        const { error } = await stripe.confirmPayment({
+        const result = await stripe.confirmPayment({
             clientSecret: secretKey,
             elements,
             confirmParams: {
                 return_url: "http://localhost:3000/"
-            }
-        })
+            },
+        });
+        if (result.error) {
+            // Show error to your customer (for example, payment details incomplete)
+            console.log(result.error.message);
+        } else {
+
+        }
     }
     return (
         <div className='flex flex-col justify-center items-center w-full mt-6'>
-            <h2 className='m-5 font-bold'>Amount to Pay: {amount}</h2>
+            <h2 className='m-5 font-bold'>Amount to Pay: ₹ {amount}</h2>
             <form onSubmit={handleSubmit} className='max-w-md'>
                 <PaymentElement />
 

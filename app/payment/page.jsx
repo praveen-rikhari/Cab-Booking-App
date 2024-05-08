@@ -3,19 +3,22 @@ import React from 'react'
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from '@/components/Payment/CheckoutForm';
+import { useSearchParams } from 'next/navigation';
 
 function Payment() {
+    const searchParam = useSearchParams();
+    const amount = searchParam.get('amount');
     const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
     const options = {
         mode: 'payment',
-        amount: 1000,
-        currency: 'inr',
+        amount: Number(amount),
+        currency: 'usd',
     };
 
     return (
         <Elements stripe={stripePromise} options={options}>
-            <CheckoutForm />
+            <CheckoutForm amount={amount} />
         </Elements>
     );
 }
