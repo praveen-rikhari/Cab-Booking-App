@@ -13,7 +13,7 @@ function Payment() {
     const options = {
         mode: 'payment',
         amount: Number(amount),
-        currency: 'usd',
+        currency: 'INR',
     };
 
     return (
