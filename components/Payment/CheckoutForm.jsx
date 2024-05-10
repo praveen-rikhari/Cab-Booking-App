@@ -1,9 +1,11 @@
 import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js'
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
 function CheckoutForm({ amount }) {
     const stripe = useStripe();
     const elements = useElements();
+    const router = useRouter();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -37,6 +39,7 @@ function CheckoutForm({ amount }) {
         if (result.error) {
             // Show error to your customer (for example, payment details incomplete)
             console.log(result.error.message);
+            router.push('http://localhost:3000/payment-confirm');
         } else {
 
         }
@@ -55,7 +58,7 @@ function CheckoutForm({ amount }) {
                     Pay
                 </button>
             </form>
-        </div>
+        </div >
     )
 }
 
