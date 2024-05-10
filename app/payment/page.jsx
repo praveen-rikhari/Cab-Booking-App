@@ -3,6 +3,7 @@ import React from 'react'
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from '@/components/Payment/CheckoutForm';
+import FakePaymentCard from '@/components/Payment/FakePaymentCard';
 import { useSearchParams } from 'next/navigation';
 
 function Payment() {
@@ -17,9 +18,12 @@ function Payment() {
     };
 
     return (
-        <Elements stripe={stripePromise} options={options}>
-            <CheckoutForm amount={amount} />
-        </Elements>
+        <>
+            <FakePaymentCard />
+            <Elements stripe={stripePromise} options={options}>
+                <CheckoutForm amount={amount} />
+            </Elements>
+        </>
     );
 }
 
