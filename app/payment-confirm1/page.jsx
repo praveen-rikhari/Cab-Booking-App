@@ -9,7 +9,7 @@ function PaymentConfirmation() {
     return (
         <div className='bg-[#f1f1f1] flex h-screen
     items-center justify-center flex-col'>
-            <h2 className='text-[30px] z-20 mt-[-30px]'>Thank You, Payment Confirmed !!!</h2>
+            <h2 className='text-[30px] z-20 mt-[-30px]'>Thank You, Please confirm your payments after the ride !!!</h2>
             <Image src='/cabconfirm.gif'
                 width={500}
                 height={150}
@@ -19,7 +19,7 @@ function PaymentConfirmation() {
             <h2 className='font-bold text-[23px] mt-[-20px] mb-10'>
                 Cab Booked Successfully...
             </h2>
-            
+
             <button className='p-2 bg-yellow-500 px-10 rounded-lg hover:bg-[#f5bb06]'
                 onClick={() => route.push('/')}
             >

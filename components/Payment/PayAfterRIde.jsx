@@ -6,7 +6,7 @@ const PayAfterRide = () => {
     const router = useRouter();
 
     const handlePayAfterRideClick = () => {
-        router.push('http://localhost:3000/payment-confirm');
+        router.push('http://localhost:3000/payment-confirm1');
     };
 
     return (
