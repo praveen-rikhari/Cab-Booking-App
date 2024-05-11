@@ -20,12 +20,24 @@ function Payment() {
 
     return (
         <>
-            <FakePaymentCard />
-            <Elements stripe={stripePromise} options={options}>
-                <CheckoutForm amount={amount} />
-            </Elements>
-            <PayAfterRide/>
+            <div className="flex flex-col items-center">
+                <div className="mb-4">
+                    <FakePaymentCard />
+                </div>
+                <div className="flex">
+                    <div className="mr-2 border border-gray-300 rounded-lg p-4">
+                        <Elements stripe={stripePromise} options={options}>
+                            <CheckoutForm amount={amount} />
+                        </Elements>
+                    </div>
+                    <div className="ml-2">
+                        <PayAfterRide />
+                    </div>
+                </div>
+            </div>
         </>
+
+
     );
 }
 
