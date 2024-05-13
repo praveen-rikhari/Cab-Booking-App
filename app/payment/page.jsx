@@ -24,16 +24,17 @@ function Payment() {
                 <div className="mb-4">
                     <FakePaymentCard />
                 </div>
-                <div className="flex">
-                    <div className="mr-2 border border-gray-300 rounded-lg p-4">
+                <div className="flex flex-col md:flex-row">
+                    <div className="mb-4 md:mr-2 border border-gray-300 rounded-lg p-4">
                         <Elements stripe={stripePromise} options={options}>
                             <CheckoutForm amount={amount} />
                         </Elements>
                     </div>
-                    <div className="ml-2">
+                    <div className="md:ml-2 mb-4">
                         <PayAfterRide />
                     </div>
                 </div>
+
             </div>
         </>
 
