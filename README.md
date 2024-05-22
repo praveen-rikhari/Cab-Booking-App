@@ -65,3 +65,17 @@ STRIPE_SECRET_KEY=
 7. **Book Ride**: Click on the "Book Ride" button.
 8. **Payment**: You will be redirected to the payment page. Pay using your card or choose to pay after the ride.
 9. **Confirmation**: Once the payment is done, you will be redirected to the payment confirmation page. Your ride is now booked!
+
+# Project Images
+
+![Screenshot 2024-05-21 at 20-30-40 Speedy Go](https://github.com/praveen-rikhari/Cab-Booking-App/assets/84331681/7ad68785-c8ee-48a1-bc60-eaf55f684b9c)
+![Screenshot 2024-05-21 at 20-32-06 Speedy Go](https://github.com/praveen-rikhari/Cab-Booking-App/assets/84331681/bed4206a-d213-41bf-a8f6-57c05ff7d94b)
+![Screenshot 2024-05-21 at 20-33-32 Speedy Go](https://github.com/praveen-rikhari/Cab-Booking-App/assets/84331681/4a9624d1-f333-4e53-a046-ca3a7ffe48a0)
+![Screenshot 2024-05-21 at 20-54-49 Speedy Go](https://github.com/praveen-rikhari/Cab-Booking-App/assets/84331681/79984d76-3353-464a-b814-3ac471155fcc)
+![Screenshot 2024-05-21 at 20-35-30 Speedy Go](https://github.com/praveen-rikhari/Cab-Booking-App/assets/84331681/b5d65d24-8210-4c69-a96a-94cd64d43dc0)
+![Screenshot 2024-05-21 at 20-35-54 Speedy Go](https://github.com/praveen-rikhari/Cab-Booking-App/assets/84331681/380fade7-79d1-42be-a612-2a860c7f9eb0)
+![Screenshot 2024-05-21 at 20-36-59 Speedy Go](https://github.com/praveen-rikhari/Cab-Booking-App/assets/84331681/a38e113d-6ec0-4f7e-a71c-985a88ef9375)
+![Screenshot 2024-05-21 at 20-38-59 Speedy Go](https://github.com/praveen-rikhari/Cab-Booking-App/assets/84331681/0fecb108-7a33-472c-91fd-f74cfdf899e4)
+![Screenshot 2024-05-21 at 20-49-38 Speedy Go](https://github.com/praveen-rikhari/Cab-Booking-App/assets/84331681/d280bd3e-448f-450d-9c7d-14038a16c646)
+![Screenshot 2024-05-21 at 20-53-38 Speedy Go](https://github.com/praveen-rikhari/Cab-Booking-App/assets/84331681/764282e1-55ac-462e-acf2-0465b2930bbd)
+![Screenshot 2024-05-21 at 20-54-22 Speedy Go](https://github.com/praveen-rikhari/Cab-Booking-App/assets/84331681/5f0c1db5-6206-42a4-8f7a-563f9250e3e8)
